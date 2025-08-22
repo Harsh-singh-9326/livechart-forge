@@ -1,73 +1,198 @@
-# Welcome to your Lovable project
+# CoinRaft - Cryptocurrency Markets Dashboard
 
-## Project info
+A modern, responsive cryptocurrency markets dashboard built with React, TypeScript, and Tailwind CSS. Track live prices, manage your watchlist, monitor your portfolio, and stay updated with real-time market data.
 
-**URL**: https://lovable.dev/projects/1de68b6e-dc00-4e2f-b4c8-6db40f6bf8a8
+## ✨ Features
 
-## How can I edit this code?
+### 📊 **Live Market Data**
+- Real-time price updates with WebSocket simulation
+- Live trading indicators and price alerts
+- Comprehensive market statistics (24h high/low, market cap, volume)
+- Beautiful 7-day sparkline charts
 
-There are several ways of editing your application.
+### 🎯 **Trading Interface**
+- Professional order book display with depth visualization
+- Live trades feed with buy/sell indicators
+- Interactive price charts with multiple timeframes (1m, 5m, 15m, 1h, 4h, 1d)
+- Currency conversion (USD, INR, USDT) with live exchange rates
 
-**Use Lovable**
+### ⭐ **Watchlist Management**
+- Add/remove coins from your personal watchlist
+- Persistent storage across browser sessions
+- Quick access to favorite cryptocurrencies
+- Bulk watchlist management
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/1de68b6e-dc00-4e2f-b4c8-6db40f6bf8a8) and start prompting.
+### 💼 **Portfolio Tracking**
+- Track your crypto investments and trades
+- Real-time P&L calculations and performance metrics
+- Position management with average cost basis
+- Comprehensive trade history
 
-Changes made via Lovable will be committed automatically to this repo.
+### 🔔 **Price Alerts**
+- Set custom price alerts for any cryptocurrency
+- Browser notifications when price targets are hit
+- Manage multiple alerts simultaneously
+- Persistent alert storage
 
-**Use your preferred IDE**
+### 🎨 **Modern Design**
+- Dark-first design optimized for traders
+- Fully responsive layout (mobile-first approach)
+- Professional color scheme with success/danger indicators
+- Smooth animations and transitions
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## 🚀 Technology Stack
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+- **Frontend**: React 18+ with TypeScript
+- **Build Tool**: Vite for fast development and building
+- **Styling**: Tailwind CSS with custom design system
+- **State Management**: Zustand with persistence
+- **Data Fetching**: TanStack Query for caching and synchronization
+- **Routing**: React Router DOM
+- **UI Components**: Custom components built with Radix UI primitives
+- **Charts**: Lightweight charts ready integration
+- **Virtualization**: TanStack Virtual for large data sets
+- **Icons**: Lucide React
 
-Follow these steps:
+## 📁 Project Structure
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+```
+src/
+├── components/          # Reusable UI components
+│   ├── ui/             # Base UI components (shadcn/ui)
+│   ├── Layout.tsx      # Main app layout with navigation
+│   ├── MarketTable.tsx # Virtualized markets table
+│   ├── PriceChip.tsx   # Price display component
+│   ├── PercentBadge.tsx # Percentage change indicator
+│   └── ...
+├── pages/              # Route components
+│   ├── Markets.tsx     # Main markets overview
+│   ├── CoinDetail.tsx  # Individual coin analysis
+│   ├── Watchlist.tsx   # User's watchlist
+│   ├── Portfolio.tsx   # Portfolio management
+│   └── Settings.tsx    # App configuration
+├── store/              # Zustand state management
+│   ├── settings.ts     # App settings (currency, theme)
+│   ├── watchlist.ts    # Watchlist management
+│   ├── portfolio.ts    # Portfolio & trades
+│   └── alerts.ts       # Price alerts
+├── lib/                # Utility functions and data
+│   ├── mockData.ts     # Realistic crypto market data
+│   ├── format.ts       # Number and currency formatting
+│   ├── wsClient.ts     # WebSocket client simulation
+│   └── utils.ts        # General utilities
+└── hooks/              # Custom React hooks
+    └── use-mobile.tsx  # Mobile detection hook
+```
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+## 🎯 Key Features Explained
 
-# Step 3: Install the necessary dependencies.
-npm i
+### Real-time Data Simulation
+The app uses a sophisticated WebSocket simulation that provides:
+- Live price updates every 2 seconds
+- Realistic market fluctuations (±0.1% price changes)
+- Order book updates with bid/ask spreads
+- Trade feed with randomized buy/sell orders
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+### Currency Conversion
+Supports multiple currencies with live conversion:
+- **USD**: US Dollar (default)
+- **INR**: Indian Rupee (₹83.25 per USD)
+- **USDT**: Tether stablecoin (~$1.001)
+
+### Professional Trading Interface
+- **Order Book**: Shows top 20 bids and asks with cumulative depth
+- **Trade Feed**: Real-time trade prints with size and side indicators
+- **Price Charts**: Ready for lightweight-charts integration
+- **Market Statistics**: Comprehensive data including supply metrics
+
+### Portfolio Management
+- **Trade Tracking**: Add buy/sell trades with timestamp
+- **Position Calculation**: Automatic average cost and P&L computation
+- **Performance Metrics**: Total portfolio value and return percentage
+- **Data Export**: Download portfolio data as JSON
+
+## 🛠️ Development
+
+### Prerequisites
+- Node.js 16+ and npm
+- Modern browser with ES2020 support
+
+### Installation
+```bash
+# Clone the repository
+git clone <repository-url>
+cd coinraft
+
+# Install dependencies
+npm install
+
+# Start development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+### Build for Production
+```bash
+npm run build
+```
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### Linting and Formatting
+```bash
+npm run lint
+npm run format
+```
 
-**Use GitHub Codespaces**
+## 📱 Responsive Design
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+The app is built with a mobile-first approach:
+- **Mobile** (320px+): Single-column layout with essential data
+- **Tablet** (768px+): Two-column layout with expanded information
+- **Desktop** (1024px+): Full layout with all columns and charts
+- **Large Desktop** (1280px+): Optimized spacing and larger charts
 
-## What technologies are used for this project?
+## 🎨 Design System
 
-This project is built with:
+### Color Palette
+- **Primary**: Professional blue (#4F46E5) for brand elements
+- **Success**: Green (#10B981) for positive values and gains
+- **Danger**: Red (#EF4444) for negative values and losses
+- **Warning**: Amber (#F59E0B) for alerts and notifications
+- **Muted**: Neutral grays for secondary information
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+### Typography
+- **Headings**: Bold weights with proper hierarchy
+- **Body**: Regular weight for readability
+- **Monospace**: For prices, percentages, and numeric data
+- **Small Text**: For metadata and secondary information
 
-## How can I deploy this project?
+### Components
+All components follow a consistent design pattern:
+- Semantic color usage (success/danger for financial data)
+- Consistent spacing and border radius
+- Hover states and smooth transitions
+- Loading states and error handling
 
-Simply open [Lovable](https://lovable.dev/projects/1de68b6e-dc00-4e2f-b4c8-6db40f6bf8a8) and click on Share -> Publish.
+## 🔧 Customization
 
-## Can I connect a custom domain to my Lovable project?
+### Adding New Cryptocurrencies
+Edit `src/lib/mockData.ts` to add more coins to the `mockCoins` array.
 
-Yes, you can!
+### Changing Color Scheme
+Modify the CSS custom properties in `src/index.css` to adjust the color palette.
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+### Adding Real Data Sources
+Replace the mock WebSocket client in `src/lib/wsClient.ts` with real API connections:
+- **REST APIs**: CoinGecko, CoinMarketCap
+- **WebSocket**: Binance, Coinbase Pro
+- **Exchange Rates**: Fixer.io, CurrencyAPI
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+## 📄 License
+
+This project is built as a demonstration of modern React development practices. Feel free to use it as a starting point for your own cryptocurrency tracking applications.
+
+## 🙏 Acknowledgments
+
+- **shadcn/ui** for the beautiful component primitives
+- **Lucide** for the comprehensive icon library
+- **Tailwind CSS** for the utility-first styling approach
+- **Radix UI** for accessible component foundations
+- **TanStack** for powerful data management tools
